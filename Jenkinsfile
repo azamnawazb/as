@@ -1,4 +1,3 @@
-/*new declarative syntax used
 pipeline {
  agent none
     stages {
@@ -12,13 +11,13 @@ pipeline {
                 userRemoteConfigs: [[url: 'https://github.com/azamnawazb/as.git']]])
             }
         }
-parallel {
+parallel 
      stage('code-validation') {
          agent { label "master" }
 	steps {
                        sh 'mvn -f pom.xml sonar:sonar'
             }
-        }
+        
      stage('Test and package') {
           agent { label "master" }
 	steps {
